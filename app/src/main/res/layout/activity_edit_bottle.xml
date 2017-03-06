@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/action_bar"
+        layout="@layout/include_action_bar" />
+
+    <include layout="@layout/edit_question_sign_bottle" />
+
+    <View style="@style/comm_line" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/dimen10">
+
+        <TextView
+            android:id="@+id/type_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/btn_regist_selector"
+            android:padding="@dimen/dimen6"
+            android:text="类型?" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+
+            <CheckBox
+                android:id="@+id/type_topic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimen6"
+                android:text="话题" />
+
+            <CheckBox
+                android:id="@+id/type_secret"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="秘密" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_bottle_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_park"
+        android:orientation="vertical">
+
+        <View style="@style/comm_line" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <ImageButton
+                android:id="@+id/edit_bottle_sel_img"
+                style="@style/edit_bottle_icon"
+                android:contentDescription="@string/contentDescription"
+                android:src="@mipmap/edit_bottle_img"
+                android:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/edit_bottle_face"
+                style="@style/edit_bottle_icon"
+                android:layout_toRightOf="@id/edit_bottle_sel_img"
+                android:contentDescription="@string/contentDescription"
+                android:src="@mipmap/edit_bottle_face" />
+        </RelativeLayout>
+
+        <View style="@style/comm_line" />
+
+        <haoqi.emoji.ui.view.EmojiKeyboard
+            android:id="@+id/edit_bottle_face_container"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

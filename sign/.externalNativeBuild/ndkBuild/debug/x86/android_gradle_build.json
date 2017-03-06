@@ -1,0 +1,33 @@
+{
+  "buildFiles": [
+    "D:\\zah\\haoqi_bottle\\sign\\src\\main\\jni\\Android.mk",
+    "D:\\zah\\haoqi_bottle\\sign\\src\\main\\jni\\Application.mk"
+  ],
+  "cleanCommands": [
+    "C:\\JOB_IDE\\android_SDK\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dD:\\zah\\haoqi_bottle\\sign\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dD:\\zah\\haoqi_bottle\\sign\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003dD:/zah/haoqi_bottle/sign/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dD:\\zah\\haoqi_bottle\\sign\\build\\intermediates\\ndkBuild\\debug\\lib clean"
+  ],
+  "libraries": {
+    "sign-debug-x86": {
+      "buildCommand": "C:\\JOB_IDE\\android_SDK\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dD:\\zah\\haoqi_bottle\\sign\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dD:\\zah\\haoqi_bottle\\sign\\src\\main\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-14 NDK_OUT\u003dD:/zah/haoqi_bottle/sign/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dD:\\zah\\haoqi_bottle\\sign\\build\\intermediates\\ndkBuild\\debug\\lib D:/zah/haoqi_bottle/sign/build/intermediates/ndkBuild/debug/obj/local/x86/libsign.so",
+      "toolchain": "toolchain-x86",
+      "abi": "x86",
+      "artifactName": "sign",
+      "files": [
+        {
+          "src": "D:\\zah\\haoqi_bottle\\sign\\src\\main\\jni\\com_zhan_haoqi_sign_Sign.cpp",
+          "flags": "\"-gcc-toolchain\" \"C:/JOB_IDE/android_SDK/ndk-bundle/build//../toolchains/x86-4.9/prebuilt/windows-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-fno-exceptions\" \"-fno-rtti\" \"-O0\" \"-UNDEBUG\" \"-fno-limit-debug-info\" \"-IC:/JOB_IDE/android_SDK/ndk-bundle/build//../sources/cxx-stl/stlport/stlport\" \"-IC:/JOB_IDE/android_SDK/ndk-bundle/build//../sources/cxx-stl//gabi++/include\" \"-ID:/zah/haoqi_bottle/sign/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"-frtti\" \"-isystem\" \"C:/JOB_IDE/android_SDK/ndk-bundle/build//../platforms/android-14/arch-x86/usr/include\""
+        }
+      ],
+      "output": "D:\\zah\\haoqi_bottle\\sign\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libsign.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-x86": {
+      "cppCompilerExecutable": "C:\\JOB_IDE\\android_SDK\\ndk-bundle\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

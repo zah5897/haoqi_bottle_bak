@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen10"
+    android:background="@drawable/material_dialog_bg"
+    android:padding="@dimen/dimen10">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:textColor="@color/black_70"
+        android:textSize="@dimen/text_size_18" />
+
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_margin="@dimen/dimen10"
+        android:textColor="@color/black_60"
+        android:textSize="@dimen/text_size_16" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/to_regist_page"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/msg"
+        android:layout_marginTop="@dimen/dimen10">
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimen16"
+            android:background="@drawable/view_selector"
+            android:paddingBottom="@dimen/dimen6"
+            android:paddingLeft="@dimen/dimen16"
+            android:paddingRight="@dimen/dimen16"
+            android:paddingTop="@dimen/dimen6"
+            android:text="@string/cancel"
+            android:textColor="@color/material_dialog_btn"
+            android:textSize="@dimen/text_size_16" />
+
+        <TextView
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen16"
+            android:background="@drawable/view_selector"
+            android:paddingBottom="@dimen/dimen6"
+            android:paddingLeft="@dimen/dimen16"
+            android:paddingRight="@dimen/dimen16"
+            android:paddingTop="@dimen/dimen6"
+
+            android:text="@string/confirm"
+            android:textColor="@color/material_dialog_btn"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+</RelativeLayout>

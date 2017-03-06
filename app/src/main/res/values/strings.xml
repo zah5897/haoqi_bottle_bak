@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">好奇漂流瓶</string>
+    <string name="contentDescription"></string>
+
+
+    <string name="bottle_create">创建瓶子</string>
+
+
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="throw_out">扔出去</string>
+
+
+    <string name="tell_to_me_some_thing_of_unhapply">扔个瓶子，遇见TA...</string>
+
+    <string name="toast_no_sd">sorry,没有sd卡</string>
+    <string name="dialog_select_img">选择</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="to_regist_tip">没有帐号？&lt;font color=\"#45c01a\">去注册&lt;/font></string>
+    <string name="login">登录</string>
+    <string name="regist">注册</string>
+    <string name="get_sms_code">获取验证码</string>
+
+    <string name="netword_not_connected">当前网络未连接</string>
+    <string name="get_sms_validate_code">正在获取验证码...</string>
+    <string name="check_mobile">正在检测手机号码...</string>
+
+    <string name="digits">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_@$.-</string>
+
+    <string name="type_tip">
+        <![CDATA[
+          <h5>类型说明:</默认不选为广播瓶子，可被多人捡到并回复，有效期为1天。h5>
+              不选：<br/>
+              话题：该状态为讨论话题，可被多人捡到并回复，捡瓶者可见在此之前的所有回复，有效期为一周。<br/>
+              秘密：该状态的瓶子为随机加锁状态，只能被单次捡到，并且有概率打不开瓶子或花费积分强制打开，被回应后瓶子不再漂流，扔回海里继续漂流。<br/>
+        ]]>
+    </string>
+
+</resources>

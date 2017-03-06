@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zhan.haoqi.bottle"
+    android:versionCode="1"
+    android:versionName="1.0.0">
+
+    <application
+        android:name="com.zhan.haoqi.bottle.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.WelcomeActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.bottle.EditBottleActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.image.ReviewSelectedImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.user.RegistActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.setting.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhan.haoqi.bottle.view.HQNetworkErrorDialog"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/network_dialog" />
+
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.bottle.BottleShowActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.user.UserInfoActiviy"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.bottle.BottleResponseActivity"
+            android:screenOrientation="portrait" />
+        <service android:name="com.zhan.haoqi.bottle.service.BottleService"></service>
+        <!--shared sms -->
+
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale|layoutDirection"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+
+
+
+        <!--腾讯第三方登录-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1105695571" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+
+
+
+
+    </application>
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+
+
+    <!--PROTECTION_NORMAL -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!--PROTECTION_DANGEROUS -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--<uses-permission android:name="android.permission.RECEIVE_SMS" />-->
+    <!--<uses-permission android:name="android.permission.READ_SMS" />-->
+
+</manifest>

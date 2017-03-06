@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen10"
+    android:background="@drawable/material_dialog_bg"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen10">
+
+
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/dimen10"
+        android:text="类型说明"
+        android:textColor="@color/black_60"
+        android:textSize="@dimen/text_size_16" />
+
+    <TableLayout
+        android:id="@+id/type_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="@dimen/dimen2">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="默认:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="默认不选为广播瓶子，可被多人捡到并回复，有效期为1天。" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="@dimen/dimen6">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="话题:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="该状态为讨论话题，可被多人捡到并回复，捡瓶者可见在此之前的所有回复，有效期为一周。" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="@dimen/dimen6">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="秘密:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="该状态的瓶子为随机加锁状态，只能被单次捡到，并且有概率打不开瓶子或花费积分强制打开，被回应后瓶子不再漂流，扔回海里继续漂流。" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen16"
+        android:background="@drawable/btn_regist_selector"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dimen6"
+        android:paddingLeft="@dimen/dimen10"
+        android:paddingRight="@dimen/dimen10"
+        android:paddingTop="@dimen/dimen6"
+        android:text="@string/confirm"
+        android:textColor="@color/material_dialog_btn"
+        android:textSize="@dimen/text_size_16" />
+</LinearLayout>

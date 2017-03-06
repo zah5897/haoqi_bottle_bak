@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white_netease"
+        android:padding="@dimen/dimen10">
+
+        <LinearLayout
+            android:id="@+id/sender_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:id="@+id/sender_info_click"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/sender_avatar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/bottle" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen10"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/nick_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black_50"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <ImageView
+                        android:id="@+id/gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/nick_name"
+                        android:src="@mipmap/user_gender_male" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/dimen2">
+
+                <TextView
+                    android:id="@+id/create_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/dimen6"
+                    android:textColor="@color/black_40"
+                    android:textSize="@dimen/text_size_14" />
+
+                <TextView
+                    android:id="@+id/report"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/create_time"
+                    android:layout_below="@+id/create_time"
+                    android:layout_marginTop="@dimen/dimen2"
+                    android:background="@drawable/btn_regist_selector"
+                    android:padding="@dimen/dimen6"
+                    android:text="举报"
+                    android:textColor="@color/app_color"
+                    android:textSize="@dimen/text_size_14" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sender_info_layout"
+            android:padding="@dimen/dimen10">
+
+            <haoqi.emoji.ui.view.EmojiTextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="5"
+                android:textColor="@color/black_70"
+                android:textSize="@dimen/text_size_16" />
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/content"
+                android:adjustViewBounds="true"
+                android:maxHeight="100dp"
+                android:maxWidth="100dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/operate_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/content_layout">
+
+            <TextView
+                android:id="@+id/throw_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_throw_out"
+                android:gravity="center"
+                android:padding="@dimen/dimen10"
+                android:text="扔掉"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_18" />
+
+            <TextView
+                android:id="@+id/say_hi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_say_hi"
+                android:gravity="center"
+                android:padding="@dimen/dimen10"
+                android:text="去回应"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_18" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

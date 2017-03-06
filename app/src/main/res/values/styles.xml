@@ -1,0 +1,182 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
+
+
+    <style name="HalfTransparent">
+        <item name="android:windowBackground">@color/white_95</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+
+    <style name="Transparent">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+
+    </style>
+
+    <style name="bottle_type">
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:textColor">@color/light_black</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">@dimen/dimen8</item>
+        <item name="android:onClick">onClick</item>
+    </style>
+
+
+    <style name="comm_line">
+        <item name="android:background">@color/gray_line</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/comm_line_size</item>
+    </style>
+
+    <style name="comm_line_v">
+        <item name="android:background">@color/gray_line</item>
+        <item name="android:layout_width">@dimen/comm_line_size</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+
+    <style name="edit_bottle_icon">
+        <item name="android:background">@null</item>
+        <item name="android:padding">@dimen/dimen10</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:onClick">onClick</item>
+    </style>
+
+    <style name="edit_bottle_bt">
+        <item name="android:enabled">false</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/selector_comm_bt_bg_blue_three_state</item>
+        <item name="android:paddingLeft">@dimen/dimen16</item>
+        <item name="android:paddingTop">@dimen/dimen6</item>
+        <item name="android:paddingRight">@dimen/dimen16</item>
+        <item name="android:paddingBottom">@dimen/dimen6</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/dimen8</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:onClick">onClick</item>
+    </style>
+
+    <style name="title">
+        <item name="android:paddingLeft">@dimen/dimen16</item>
+        <item name="android:paddingRight">@dimen/dimen16</item>
+        <item name="android:visibility">visible</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:onClick">onClick</item>
+    </style>
+
+    <style name="title_iv" parent="@style/title">
+        <item name="android:background">@drawable/selector_action_bar_icon</item>
+    </style>
+
+    <style name="title_left_iv" parent="@style/title_iv" />
+
+    <style name="title_text" parent="@style/title">
+        <item name="android:textSize">@dimen/text_size_15</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="title_middle">
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLength">7</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="title_right_iv" parent="@style/title_iv">
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="title_left_text" parent="@style/title_text" />
+
+    <style name="comm_red_point">
+        <item name="android:background">@drawable/bg_red_point</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_width">@dimen/red_point_size</item>
+        <item name="android:layout_height">@dimen/red_point_size</item>
+    </style>
+
+    <style name="action_sheet">
+        <item name="android:windowBackground">@drawable/bg_transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="action_sheet_animation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_action_sheet_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_action_sheet_exit</item>
+    </style>
+
+    <style name="item_dialog_tv">
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:textColor">@color/light_black</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@null</item>
+        <item name="android:padding">@dimen/dimen10</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/dialog_cancel</item>
+    </style>
+
+    <style name="comm_listview_divider">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:listSelector">@color/transparent</item>
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:divider">@color/gray_line</item>
+        <item name="android:dividerHeight">0.100000024dip</item>
+    </style>
+
+
+    <style name="network_dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <style name="chat_bottom_ib">
+        <item name="android:background">@null</item>
+        <item name="android:paddingLeft">@dimen/dimen8</item>
+        <item name="android:paddingTop">@dimen/dimen8</item>
+        <item name="android:paddingRight">@dimen/dimen8</item>
+        <item name="android:paddingBottom">@dimen/dimen8</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:onClick">onClick</item>
+    </style>
+
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/title_height"
+    android:background="@color/title_bar_color"
+    android:clickable="false">
+
+    <ImageView
+        android:id="@+id/back"
+        style="@style/title_left_text"
+        android:background="@drawable/view_selector"
+        android:gravity="center"
+        android:src="@drawable/smssdk_back_arrow" />
+
+    <TextView
+        android:id="@+id/action_bar_middle_text"
+        style="@style/title_middle" />
+
+    <TextView
+        android:id="@+id/action_bar_right_text"
+        style="@style/title_left_text"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/btn_regist_selector"
+        android:visibility="gone" />
+</RelativeLayout>

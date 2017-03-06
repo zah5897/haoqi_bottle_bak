@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="red">#f16d7a</color>
+    <color name="green">#b7d28d</color>
+    <color name="blue">#b8f1ed</color>
+    <color name="item_press_color">#11000000</color>
+    <color name="transprant">#00000000</color>
+    <color name="half_transprant">#88D4D4D4</color>
+
+    <color name="half_white_transprant">#ccFFFFFF</color>
+    <color name="material_dialog_btn">#34A99E</color>
+
+
+    <color name="gray_text">#ffa9a9a9</color>
+
+
+    <color name="light_black">#ff333333</color>
+    <color name="white_95">#f2ffffff</color>
+    <color name="white_netease">#F6F7F7</color>
+    <color name="deep_blue">#16AEF9</color>
+
+
+    <color name="gray_park">#ffebebeb</color>
+    <color name="white">#ffffff</color>
+    <color name="app_color">#ff45c01a</color>
+    <color name="gray_line">#ffe1e1e1</color>
+    <color name="btn_noraml">@color/app_color</color>
+    <color name="btn_press">#aa45c01a</color>
+    <color name="transparent">#00000000</color>
+
+
+    <color name="gray_text_second">#ffcbcbcc</color>
+
+
+    <color name="black_20">#33000000</color>
+    <color name="black_40">#66000000</color>
+    <color name="black_5">#0d000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_60">#99000000</color>
+    <color name="black_70">#b3000000</color>
+    <color name="black_80">#cc000000</color>
+    <color name="black_90">#e6000000</color>
+
+
+    <color name="icon_bottle_color">#0CC5D5</color>
+    <color name="at_comment_bg">#FFFAE3</color>
+</resources>

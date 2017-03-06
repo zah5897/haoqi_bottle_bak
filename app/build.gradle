@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+
+    defaultConfig {
+        applicationId "com.zhan.haoqi.bottle"
+        minSdkVersion 14
+        targetSdkVersion 24
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:recyclerview-v7:24.1.0'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile project(':IM')
+    compile project(':sign')
+    compile files('libs/open_sdk_r5756_lite.jar')
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'io.reactivex:rxjava:1.0.9'
+    compile 'io.reactivex:rxandroid:0.24.0'
+    compile 'com.squareup.okhttp3:okhttp:3.5.0'
+    compile project(':smssdk')
+}
+
+
+
+
+
+
+
+
+
+

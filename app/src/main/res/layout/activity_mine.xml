@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_netease"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/action_bar"
+        layout="@layout/include_action_bar_only_title"></include>
+
+
+    <RelativeLayout
+        android:id="@+id/user_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen10"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen10"
+            android:src="@mipmap/bottle" />
+
+        <LinearLayout
+            android:id="@+id/user_info_item_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avatar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimen6"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/nick_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lines="1"
+                android:textSize="@dimen/text_size_16" />
+
+            <TextView
+                android:id="@+id/jifen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/no_login_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avatar"
+            android:layout_centerHorizontal="true"
+            android:text="您还未登陆" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/my_prop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen20"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="1dp">
+
+        <TextView
+            android:id="@+id/my_bottle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen2"
+            android:background="@drawable/rect_view_selector"
+            android:drawableLeft="@mipmap/person_center_my_bottle"
+            android:drawablePadding="@dimen/dimen6"
+            android:drawableRight="@mipmap/arrow_gray_to_right"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen10"
+            android:text="我的瓶子"
+            android:textSize="@dimen/text_size_16" />
+
+        <View style="@style/comm_line" />
+
+        <TextView
+            android:id="@+id/my_tool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen2"
+            android:background="@drawable/rect_view_selector"
+            android:drawableLeft="@mipmap/my_tool"
+            android:drawablePadding="@dimen/dimen6"
+            android:drawableRight="@mipmap/arrow_gray_to_right"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen10"
+            android:text="我的工具"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen20"
+        android:background="@color/white"
+        android:padding="1dp">
+
+        <TextView
+            android:id="@+id/setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/my_prop"
+            android:background="@drawable/rect_view_selector"
+            android:drawableLeft="@mipmap/person_setting_icon"
+            android:drawablePadding="@dimen/dimen6"
+            android:drawableRight="@mipmap/arrow_gray_to_right"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen10"
+            android:text="设置"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+
+</LinearLayout>

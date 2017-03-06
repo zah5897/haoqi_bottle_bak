@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transprant">#00000000</color>
+    <color name="half_transprant">#88D4D4D4</color>
+
+    <color name="title_bar_color">#ff454a4b</color>
+    <color name="app_sms_color">#ff45c01a</color>
+    <color name="btn_regist_press">#aa45c01a</color>
+    <color name="app_sms_line_color">#fff2f2f2</color>
+</resources>

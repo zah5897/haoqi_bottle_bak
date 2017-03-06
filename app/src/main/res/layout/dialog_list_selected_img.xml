@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/action_sheet_list_lv"
+        style="@style/comm_listview_divider"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:scrollbars="none" />
+
+    <View style="@style/comm_line" />
+
+    <TextView
+        android:id="@+id/action_sheet_cancel_bt"
+        style="@style/item_dialog_tv" />
+</LinearLayout>

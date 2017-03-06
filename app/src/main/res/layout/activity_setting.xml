@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_netease">
+
+    <include
+        android:id="@+id/action_bar"
+        layout="@layout/include_action_bar_back"></include>
+
+
+    <LinearLayout
+        android:id="@+id/notify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/action_bar"
+        android:layout_marginTop="@dimen/dimen20"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen2">
+
+        <TextView
+            android:id="@+id/notify_sound"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_view_selector"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen10"
+            android:text="通知声音"
+            android:textSize="@dimen/text_size_16" />
+
+        <View style="@style/comm_line" />
+
+        <TextView
+            android:id="@+id/vibrary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_view_selector"
+            android:drawablePadding="@dimen/dimen6"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen10"
+            android:text="通知震动"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/system"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notify"
+        android:layout_marginTop="@dimen/dimen20"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen2">
+
+        <TextView
+            android:id="@+id/sys_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_view_selector"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen10"
+            android:text="系统公告"
+            android:textSize="@dimen/text_size_16" />
+
+        <View style="@style/comm_line" />
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_view_selector"
+            android:drawablePadding="@dimen/dimen6"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen10"
+            android:text="检查更新"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimen20"
+        android:background="@drawable/btn_selector"
+        android:gravity="center"
+        android:padding="@dimen/dimen10"
+        android:text="退出登录"
+        android:textColor="@color/white_netease"
+        android:textSize="@dimen/text_size_18" />
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Emoji/Emoji.iml" filepath="$PROJECT_DIR$/Emoji/Emoji.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IM/IM.iml" filepath="$PROJECT_DIR$/IM/IM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/haoqi_bottle.iml" filepath="$PROJECT_DIR$/haoqi_bottle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sign/sign.iml" filepath="$PROJECT_DIR$/sign/sign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/smssdk/smssdk.iml" filepath="$PROJECT_DIR$/smssdk/smssdk.iml" />
+    </modules>
+  </component>
+</project>

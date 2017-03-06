@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include
+        android:id="@id/action_bar"
+        layout="@layout/include_action_bar_back" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_weight="1"
+        android:fadeScrollbars="true"
+        android:scrollbars="vertical" />
+
+    <include
+        android:id="@+id/bottle_detail_bottom_container"
+        layout="@layout/include_bottom_input" />
+</LinearLayout>
