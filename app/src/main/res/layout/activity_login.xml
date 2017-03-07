@@ -36,7 +36,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/dimen10"
                 android:background="@null"
-                android:hint="账号"
+                android:hint="手机号"
                 android:lines="1"
                 android:textColor="@color/black_50"
                 android:textSize="@dimen/text_size_14" />
@@ -79,10 +79,10 @@
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
+    <Button
         android:id="@+id/login"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="46dp"
         android:layout_below="@+id/input_layout"
         android:layout_margin="@dimen/dimen10"
         android:background="@drawable/btn_selector"

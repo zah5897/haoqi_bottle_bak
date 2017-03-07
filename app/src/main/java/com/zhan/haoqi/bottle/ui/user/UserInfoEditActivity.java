@@ -17,7 +17,6 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.zhan.haoqi.bottle.R;
-import com.zhan.haoqi.bottle.data.User;
 import com.zhan.haoqi.bottle.data.UserManager;
 import com.zhan.haoqi.bottle.http.BaseSubscriber;
 import com.zhan.haoqi.bottle.http.HttpError;
@@ -42,7 +41,7 @@ import butterknife.OnClick;
  * Created by zah on 2016/11/24.
  */
 
-public class RegistActivity extends Activity {
+public class UserInfoEditActivity extends Activity {
     private static final int REQUEST_CROP_IMAGE = 3;
     @BindView(R.id.avatar_view)
     ImageView avatarView;
@@ -62,12 +61,12 @@ public class RegistActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_regist);
+        setContentView(R.layout.activity_edit_user_info);
         ButterKnife.bind(this);
-        ((TextView) findViewById(R.id.action_bar_middle_text)).setText("注册");
+        ((TextView) findViewById(R.id.action_bar_middle_text)).setText("用戶信息");
     }
 
-    @OnClick({R.id.back, R.id.avatar, R.id.gender, R.id.regist_submit})
+    @OnClick({R.id.back, R.id.avatar, R.id.gender, R.id.save_submit})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.back:
@@ -77,7 +76,7 @@ public class RegistActivity extends Activity {
                 showSelectImgDialog();
                 break;
             case R.id.gender:
-                selecteGender();
+                MaterialDialogUtil.showDialogTip(UserInfoEditActivity.this, "性别无法修改");
                 break;
             case R.id.regist_submit:
                 submitRegist();
@@ -103,7 +102,7 @@ public class RegistActivity extends Activity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        MaterialDialogUtil.showDialogTip(RegistActivity.this, "注意，注册成功后性别无法修改");
+                        MaterialDialogUtil.showDialogTip(UserInfoEditActivity.this, "注意，注册成功后性别无法修改");
                     }
                 });
         singleChoiceDialog.show();
@@ -192,12 +191,12 @@ public class RegistActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) {
-                    File file = MediaManager.getPhotoFromCamera(RegistActivity.this);
+                    File file = MediaManager.getPhotoFromCamera(UserInfoEditActivity.this);
                     if (file != null) {
                         uploadimgPath = file.getAbsolutePath();
                     }
                 } else if (i == 1) {
-                    MediaManager.getPhotoFromAlbum(RegistActivity.this);
+                    MediaManager.getPhotoFromAlbum(UserInfoEditActivity.this);
                 }
             }
         }).show();

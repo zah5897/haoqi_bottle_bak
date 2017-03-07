@@ -131,7 +131,7 @@ public class LoginActivity extends Activity {
         String passwordStr = password.getText().toString();
 
         if (TextUtils.isEmpty(mobile)) {
-            To.show("账号不能为空");
+            To.show("手机号码不能为空");
             return;
         }
         if (TextUtils.isEmpty(passwordStr)) {

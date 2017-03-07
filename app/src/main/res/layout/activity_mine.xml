@@ -15,23 +15,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen10"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:padding="20dp">
 
         <ImageView
             android:id="@+id/avatar"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="@dimen/dimen10"
+            android:background="@color/transparent"
             android:src="@mipmap/bottle" />
 
         <LinearLayout
             android:id="@+id/user_info_item_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/avatar"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/dimen6"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/avatar"
             android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone">
@@ -45,17 +47,19 @@
                 android:textSize="@dimen/text_size_16" />
 
             <TextView
-                android:id="@+id/jifen"
+                android:id="@+id/signature"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_16"
+                android:text="signature" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/no_login_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/avatar"
-            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/avatar"
             android:text="您还未登陆" />
     </RelativeLayout>
 

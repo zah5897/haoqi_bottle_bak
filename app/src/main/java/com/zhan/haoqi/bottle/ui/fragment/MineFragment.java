@@ -17,6 +17,7 @@ import com.zhan.haoqi.bottle.data.UserManager;
 import com.zhan.haoqi.bottle.http.HttpHelper;
 import com.zhan.haoqi.bottle.ui.LoginActivity;
 import com.zhan.haoqi.bottle.ui.setting.SettingActivity;
+import com.zhan.haoqi.bottle.ui.user.UserInfoEditActivity;
 import com.zhan.haoqi.bottle.util.ImageShowUtil;
 
 import butterknife.BindView;
@@ -33,8 +34,6 @@ public class MineFragment extends Fragment {
     ImageView avatar;
     @BindView(R.id.nick_name)
     TextView nickName;
-    @BindView(R.id.jifen)
-    TextView jifen;
     private User user;
     View layout;
 
@@ -90,7 +89,6 @@ public class MineFragment extends Fragment {
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         nickName.setCompoundDrawables(null, null, drawable, null);
 
-        jifen.setText("积分:0");
     }
 
     @OnClick({R.id.user_info_layout, R.id.my_bottle, R.id.my_tool, R.id.setting})
@@ -99,6 +97,8 @@ public class MineFragment extends Fragment {
             case R.id.user_info_layout:
                 if (!UserManager.getInstance().isLogin()) {
                     startActivity(new Intent(getActivity(), LoginActivity.class));
+                } else {
+                    startActivity(new Intent(getActivity(), UserInfoEditActivity.class));
                 }
                 break;
             case R.id.my_bottle:

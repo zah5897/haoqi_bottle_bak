@@ -7,7 +7,7 @@
 
     <include
         android:id="@id/action_bar"
-        layout="@layout/include_action_bar_back" />
+        layout="@layout/include_action_bar" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
