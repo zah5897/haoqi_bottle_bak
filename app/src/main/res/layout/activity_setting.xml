@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/dimen20"
-        android:background="@drawable/btn_selector"
+        android:background="@drawable/app_btn_selector"
         android:gravity="center"
         android:padding="@dimen/dimen10"
         android:text="退出登录"

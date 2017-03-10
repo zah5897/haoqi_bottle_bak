@@ -163,7 +163,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="50dp"
-            android:background="@drawable/btn_regist_selector"
+            android:background="@drawable/app_btn_selector"
             android:text="提交注冊"
             android:textColor="@color/white"
             android:textSize="16sp" />

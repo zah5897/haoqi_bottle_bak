@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dimen16"
-        android:background="@drawable/btn_regist_selector"
+        android:background="@drawable/app_btn_selector"
         android:gravity="center"
         android:paddingBottom="@dimen/dimen6"
         android:paddingLeft="@dimen/dimen10"

@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$/IM" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/sign" />
-            <option value="$PROJECT_DIR$/smssdk" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -3,7 +3,6 @@
 
     <color name="red">#f16d7a</color>
     <color name="green">#b7d28d</color>
-    <color name="blue">#b8f1ed</color>
     <color name="item_press_color">#11000000</color>
     <color name="transprant">#00000000</color>
     <color name="half_transprant">#88D4D4D4</color>
@@ -13,19 +12,20 @@
 
 
     <color name="gray_text">#ffa9a9a9</color>
-
+    <color name="title_bar_color">#ff454a4b</color>
 
     <color name="light_black">#ff333333</color>
     <color name="white_95">#f2ffffff</color>
     <color name="white_netease">#F6F7F7</color>
     <color name="deep_blue">#16AEF9</color>
+    <color name="blue">#36BCF9</color>
+    <color name="light_blue">#85DBFE</color>
 
 
     <color name="gray_park">#ffebebeb</color>
     <color name="white">#ffffff</color>
     <color name="app_color">#ff45c01a</color>
     <color name="gray_line">#ffe1e1e1</color>
-    <color name="btn_noraml">@color/app_color</color>
     <color name="btn_press">#aa45c01a</color>
     <color name="transparent">#00000000</color>
 

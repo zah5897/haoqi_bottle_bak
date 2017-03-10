@@ -77,7 +77,7 @@
                     android:layout_alignRight="@+id/create_time"
                     android:layout_below="@+id/create_time"
                     android:layout_marginTop="@dimen/dimen2"
-                    android:background="@drawable/btn_regist_selector"
+                    android:background="@drawable/view_selector"
                     android:padding="@dimen/dimen6"
                     android:text="举报"
                     android:textColor="@color/app_color"

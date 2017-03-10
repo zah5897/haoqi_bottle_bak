@@ -11,7 +11,7 @@
         android:background="@drawable/view_selector"
         android:gravity="center"
         android:scaleType="center"
-        android:src="@drawable/smssdk_back_arrow" />
+        android:src="@mipmap/smssdk_back_arrow" />
 
     <TextView
         android:id="@+id/action_bar_middle_text"

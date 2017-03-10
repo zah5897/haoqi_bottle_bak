@@ -85,7 +85,7 @@
         android:layout_height="46dp"
         android:layout_below="@+id/input_layout"
         android:layout_margin="@dimen/dimen10"
-        android:background="@drawable/btn_selector"
+        android:background="@drawable/app_btn_selector"
         android:gravity="center"
         android:text="登录"
         android:textColor="@color/white_95"

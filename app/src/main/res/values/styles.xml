@@ -59,7 +59,6 @@
         <item name="android:enabled">false</item>
         <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/selector_comm_bt_bg_blue_three_state</item>
         <item name="android:paddingLeft">@dimen/dimen16</item>
         <item name="android:paddingTop">@dimen/dimen6</item>
         <item name="android:paddingRight">@dimen/dimen16</item>
@@ -177,6 +176,12 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:onClick">onClick</item>
+    </style>
+
+    <!--- sms-->
+    <style name="CommonDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/smssdk_dialog_bg</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
 </resources>

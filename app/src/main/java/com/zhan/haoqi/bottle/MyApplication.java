@@ -1,6 +1,7 @@
 package com.zhan.haoqi.bottle;
 
 import android.app.Application;
+import android.view.inputmethod.InputMethodManager;
 
 import com.zhan.haoqi.bottle.data.UserManager;
 import com.zhan.haoqi.bottle.err.CrashApplication;
@@ -26,6 +27,7 @@ public class MyApplication extends Application {
         //初始化
         UserManager.getInstance();
         SMSHelper.initSharedSms(application);
+
     }
 
 }

@@ -1,1 +1,1 @@
-include ':app', ':IM', ':Emoji', ':sign', ':smssdk'
+include ':app', ':IM', ':Emoji', ':sign'

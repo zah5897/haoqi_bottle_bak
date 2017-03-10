@@ -36,4 +36,6 @@
         ]]>
     </string>
 
+
+    <string name="time_count_down"><Data>倒计时(&lt;font color=#DB5347>%s&lt;/font>)秒</Data></string>
 </resources>
