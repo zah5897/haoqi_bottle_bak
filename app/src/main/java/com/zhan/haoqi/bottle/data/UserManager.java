@@ -38,6 +38,7 @@ public class UserManager {
     public static final String USER_SUBMIT = "/user/submit";
     public static final String USER_LOGIN = "/user/login";
     public static final String USER_REGIST = "/user/regist";
+    public static final String USER_MODIFY = "/user/modify_user_info";
     private static UserManager userManager;
     private Tencent mTencent;
 
@@ -157,6 +158,9 @@ public class UserManager {
 
     public void regist(RequestParam param, BaseSubscriber baseSubscriber) {
         HttpHelper.post(USER_REGIST, param).subscribe(baseSubscriber);
+    }
+    public void modifyUserInfo(RequestParam param, BaseSubscriber baseSubscriber) {
+        HttpHelper.post(USER_MODIFY, param).subscribe(baseSubscriber);
     }
 
     public void praseAndSave(JSONObject jsonObject) {

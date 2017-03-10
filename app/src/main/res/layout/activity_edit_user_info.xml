@@ -15,14 +15,12 @@
         android:background="@color/white_netease"
         android:orientation="vertical">
 
-        <View
-            style="@style/comm_line"
-            android:layout_marginTop="20dp" />
 
         <LinearLayout
             android:id="@+id/avatar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:background="@color/white"
             android:padding="10dp">
 
@@ -39,7 +37,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginRight="10dp"
-                android:src="@mipmap/user_defaultavatar" />
+                android:src="@mipmap/user_editavatar" />
         </LinearLayout>
 
         <View style="@style/comm_line" />
@@ -99,15 +97,10 @@
                 android:text="男" />
         </LinearLayout>
 
-        <View style="@style/comm_line" />
-
-        <View
-            style="@style/comm_line"
-            android:layout_marginTop="20dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:background="@drawable/item_white_clickable_selector">
 
             <TextView
@@ -122,16 +115,14 @@
                 android:id="@+id/signature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1" android:hint="写点什么..."
-                android:textSize="@dimen/text_size_16"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
                 android:background="@null"
-                android:inputType="textPassword" android:minLines="3"
-                android:lines="3" />
+                android:hint="写点什么..."
+                android:lines="3"
+                android:textSize="@dimen/text_size_16" />
         </LinearLayout>
 
-        <View style="@style/comm_line" />
 
         <Button
             android:id="@+id/save_submit"

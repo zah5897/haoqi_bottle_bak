@@ -15,6 +15,7 @@ public class User implements Parcelable {
     public long id;
     public String birthday;
     public int integral; //积分
+    public String signature; //积分
 
 
     public User() {
@@ -29,6 +30,7 @@ public class User implements Parcelable {
         id = in.readLong();
         birthday = in.readString();
         integral = in.readInt();
+        signature = in.readString();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -58,5 +60,6 @@ public class User implements Parcelable {
         parcel.writeLong(id);
         parcel.writeString(birthday);
         parcel.writeInt(integral);
+        parcel.writeString(signature);
     }
 }

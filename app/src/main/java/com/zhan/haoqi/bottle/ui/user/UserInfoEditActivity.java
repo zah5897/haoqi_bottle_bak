@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -17,9 +18,11 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.zhan.haoqi.bottle.R;
+import com.zhan.haoqi.bottle.data.User;
 import com.zhan.haoqi.bottle.data.UserManager;
 import com.zhan.haoqi.bottle.http.BaseSubscriber;
 import com.zhan.haoqi.bottle.http.HttpError;
+import com.zhan.haoqi.bottle.http.HttpHelper;
 import com.zhan.haoqi.bottle.http.RequestParam;
 import com.zhan.haoqi.bottle.util.AppUtils;
 import com.zhan.haoqi.bottle.util.ImageShowUtil;
@@ -45,25 +48,39 @@ public class UserInfoEditActivity extends Activity {
     private static final int REQUEST_CROP_IMAGE = 3;
     @BindView(R.id.avatar_view)
     ImageView avatarView;
-    @BindView(R.id.gender_txt)
-    TextView genderTxt;
     @BindView(R.id.nick_name)
     EditText nick_name;
-    @BindView(R.id.password)
-    EditText password;
-    @BindView(R.id.password_again)
-    EditText passwordAgain;
-
+    @BindView(R.id.signature)
+    EditText signature;
+    @BindView(R.id.gender_txt)
+    TextView gender_txt;
     private String uploadimgPath;
-
-    private int gender = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_user_info);
         ButterKnife.bind(this);
-        ((TextView) findViewById(R.id.action_bar_middle_text)).setText("用戶信息");
+        ((TextView) findViewById(R.id.action_bar_middle_text)).setText("用户信息");
+        setUserInfo();
+    }
+
+
+    private void setUserInfo() {
+        User user = UserManager.getInstance().getUser();
+        if (!TextUtils.isEmpty(user.avatar)) {
+            if (user.avatar.startsWith("http")) {
+                ImageShowUtil.display(this, user.avatar, avatarView, 0, false);
+            } else {
+                ImageShowUtil.display(this, HttpHelper.getAvatarProFix(user.avatar), avatarView, R.mipmap.user_editavatar, false);
+            }
+        }
+        nick_name.setText(user.nick_name);
+        gender_txt.setText(user.gender == 0 ? "女" : "男");
+
+        if (!TextUtils.isEmpty(user.signature)) {
+            signature.setText(user.signature);
+        }
     }
 
     @OnClick({R.id.back, R.id.avatar, R.id.gender, R.id.save_submit})
@@ -78,41 +95,17 @@ public class UserInfoEditActivity extends Activity {
             case R.id.gender:
                 MaterialDialogUtil.showDialogTip(UserInfoEditActivity.this, "性别无法修改");
                 break;
-            case R.id.regist_submit:
-                submitRegist();
+            case R.id.save_submit:
+                submitUserInfo();
                 break;
         }
     }
 
 
-    private void selecteGender() {
-        final String[] items = {"女", "男"};
-        AlertDialog.Builder singleChoiceDialog =
-                new AlertDialog.Builder(this);
-        singleChoiceDialog.setTitle("性别");
-        // 第二个参数是默认选项，此处设置为0
-        singleChoiceDialog.setSingleChoiceItems(items, 1,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        gender = which;
-                    }
-                });
-        singleChoiceDialog.setPositiveButton("确定",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        MaterialDialogUtil.showDialogTip(UserInfoEditActivity.this, "注意，注册成功后性别无法修改");
-                    }
-                });
-        singleChoiceDialog.show();
-    }
-
     private PopupWindow submit;
 
-    private void submitRegist() {
+    private void submitUserInfo() {
 
-        String phone = getIntent().getStringExtra("phone");
 //
         String nickNameStr = nick_name.getText().toString().trim();
         if (TextUtils.isEmpty(nickNameStr)) {
@@ -123,41 +116,22 @@ public class UserInfoEditActivity extends Activity {
             To.show("昵称不能超过16位");
             return;
         }
-        String pwdString = password.getText().toString();
-        if (TextUtils.isEmpty(pwdString.trim())) {
-            To.show("密码不能为空");
-            return;
-        }
-        if (pwdString.trim().length() < 6) {
-            To.show("密码太短");
-            return;
-        }
 
-        String repwdStr = passwordAgain.getText().toString();
-
-        if (!pwdString.equals(repwdStr)) {
-            To.show("两次输入的密码不一致");
-            return;
-        }
-
-        submit = To.showPop(this, R.id.regist_submit, "正在提交注册...");
+        submit = To.showPop(this, R.id.save_submit, "正在修改...");
 
         File avatarFile = null;
         if (!TextUtils.isEmpty(uploadimgPath)) {
             avatarFile = new File(uploadimgPath);
         }
         RequestParam param = new RequestParam();
-        param.put("mobile", phone);
-        param.put("password", pwdString);
         param.put("nick_name", nickNameStr);
-        param.put("gender", gender);
+        param.put("signature", signature.getText().toString().trim());
         if (avatarFile != null && avatarFile.exists()) {
             param.put("avatar", avatarFile);
         }
-        UserManager.getInstance().regist(param, new BaseSubscriber<JSONObject>() {
+        UserManager.getInstance().modifyUserInfo(param, new BaseSubscriber<JSONObject>() {
                     @Override
                     public void onCompleted() {
-
                     }
 
                     @Override
@@ -170,10 +144,10 @@ public class UserInfoEditActivity extends Activity {
                     @Override
                     public void onNext(JSONObject o) {
                         To.dismiss(submit);
-                        To.show("注册成功！");
+                        To.show("保存成功！");
                         setResult(RESULT_OK);
-                        finish();
                         UserManager.getInstance().praseAndSave(o);
+                        finish();
                         return;
                     }
                 }
@@ -249,4 +223,7 @@ public class UserInfoEditActivity extends Activity {
     }
 
 
+    @OnClick(R.id.save_submit)
+    public void onClick() {
+    }
 }

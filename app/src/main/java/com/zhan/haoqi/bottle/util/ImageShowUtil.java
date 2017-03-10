@@ -19,12 +19,23 @@ public class ImageShowUtil {
         toDisplay(MyApplication.getApp(), imageUrl, imageView, isRound);
     }
 
+    public static void display(String imageUrl, ImageView imageView, int errorResId, boolean isRound) {
+        toDisplay(MyApplication.getApp(), imageUrl, imageView, errorResId, isRound);
+    }
+
     public static void display(Uri imageUri, ImageView imageView, boolean isRound) {
         toDisplay(MyApplication.getApp(), imageUri, imageView, isRound);
     }
 
+    public static void display(Uri imageUri, ImageView imageView, int errorResId, boolean isRound) {
+        toDisplay(MyApplication.getApp(), imageUri, imageView, errorResId, isRound);
+    }
+
     public static void display(Context context, String imageUrl, ImageView imageView, boolean isRound) {
         toDisplay(context, imageUrl, imageView, isRound);
+    }
+    public static void display(Context context, String imageUrl, ImageView imageView,int errorResId, boolean isRound) {
+        toDisplay(context, imageUrl, imageView, errorResId,isRound);
     }
 
     public static void display(Fragment fragment, String imageUrl, ImageView imageView, boolean isRound) {
@@ -48,11 +59,28 @@ public class ImageShowUtil {
 
     }
 
+    private static void toDisplay(Context context, String imageUrl, ImageView imageView, int errorResId, boolean isRound) {
+        if (isRound) {
+            Glide.with(context).load(imageUrl).transform(new GlideCircleTransform(context)).error(errorResId).into(imageView);
+        } else {
+            Glide.with(context).load(imageUrl).error(errorResId).into(imageView);
+        }
+
+    }
+
     private static void toDisplay(Context context, Uri imageUrl, ImageView imageView, boolean isRound) {
         if (isRound) {
             Glide.with(context).load(imageUrl).transform(new GlideCircleTransform(context)).into(imageView);
         } else {
             Glide.with(context).load(imageUrl).into(imageView);
+        }
+    }
+
+    private static void toDisplay(Context context, Uri imageUrl, ImageView imageView, int errorResId, boolean isRound) {
+        if (isRound) {
+            Glide.with(context).load(imageUrl).transform(new GlideCircleTransform(context)).error(errorResId).into(imageView);
+        } else {
+            Glide.with(context).load(imageUrl).error(errorResId).into(imageView);
         }
     }
 

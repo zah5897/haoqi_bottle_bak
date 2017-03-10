@@ -33,6 +33,7 @@ import butterknife.OnClick;
 public class MainActivity extends FragmentActivity {
 
     public static final String ACTION_THROW_BOTTLE = "action.bottle";
+    public static final String ACTION_USER_INFO_UPDATE = "action.user_info_update";
     @BindView(R.id.msg_txt)
     TextView msgTxt;
     @BindView(R.id.mine_txt)
@@ -54,6 +55,7 @@ public class MainActivity extends FragmentActivity {
         showSeaTab();
 
         IntentFilter filter = new IntentFilter(ACTION_THROW_BOTTLE);
+        filter.addAction(ACTION_USER_INFO_UPDATE);
         registerReceiver(broadcastReceiver, filter);
     }
 
@@ -189,6 +191,8 @@ public class MainActivity extends FragmentActivity {
             if (intent != null) {
                 if (ACTION_THROW_BOTTLE.equals(intent.getAction())) {
                     throwOutAnim();
+                } else if (ACTION_USER_INFO_UPDATE.equals(intent.getAction())) {
+                    //用户信息修改
                 }
             }
         }

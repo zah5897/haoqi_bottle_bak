@@ -20,6 +20,6 @@
         android:id="@+id/action_bar_right_text"
         style="@style/title_left_text"
         android:layout_alignParentRight="true"
-        android:background="@drawable/btn_regist_selector"
+        android:background="@drawable/view_selector"
         android:visibility="gone" />
 </RelativeLayout>

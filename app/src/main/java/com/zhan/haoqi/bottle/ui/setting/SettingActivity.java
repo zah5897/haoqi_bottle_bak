@@ -19,7 +19,7 @@ import butterknife.OnClick;
  */
 
 public class SettingActivity extends Activity {
-    @BindView(R.id.title)
+    @BindView(R.id.action_bar_middle_text)
     TextView title;
     @BindView(R.id.sys_msg)
     TextView sysMsg;

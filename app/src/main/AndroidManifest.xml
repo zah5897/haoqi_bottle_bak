@@ -59,7 +59,17 @@
         <activity
             android:name="com.zhan.haoqi.bottle.ui.bottle.BottleResponseActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.user.UserInfoEditActivity"
+            android:screenOrientation="portrait" />
+
+
+
+
+
+
         <service android:name="com.zhan.haoqi.bottle.service.BottleService"></service>
+
         <!--shared sms -->
 
         <activity

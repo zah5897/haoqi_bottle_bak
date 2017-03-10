@@ -15,14 +15,11 @@
         android:background="@color/white_netease"
         android:orientation="vertical">
 
-        <View
-            style="@style/comm_line"
-            android:layout_marginTop="20dp" />
-
         <LinearLayout
             android:id="@+id/avatar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:background="@color/white"
             android:padding="10dp">
 
@@ -39,7 +36,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginRight="10dp"
-                android:src="@mipmap/user_defaultavatar" />
+                android:src="@mipmap/user_editavatar" />
         </LinearLayout>
 
         <View style="@style/comm_line" />
@@ -66,7 +63,8 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:gravity="right" android:hint="请输入昵称"
+                android:gravity="right"
+                android:hint="请输入昵称"
                 android:textColor="@color/black_50"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -99,15 +97,11 @@
                 android:text="男" />
         </LinearLayout>
 
-        <View style="@style/comm_line" />
-
-        <View
-            style="@style/comm_line"
-            android:layout_marginTop="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/item_white_clickable_selector">
 
             <TextView
@@ -121,13 +115,15 @@
             <EditText
                 android:id="@+id/password"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:textSize="@dimen/text_size_16"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1" android:hint="请输入长度不小于6为的密码"
+                android:layout_weight="1"
                 android:background="@null"
+                android:hint="请输入长度不小于6为的密码"
                 android:inputType="textPassword"
+                android:lines="1"
 
-                android:lines="1" />
+                android:textSize="@dimen/text_size_16" />
         </LinearLayout>
 
         <View style="@style/comm_line" />
@@ -150,14 +146,15 @@
                 android:id="@+id/password_again"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical" android:textSize="@dimen/text_size_16"
-                android:layout_weight="1" android:hint="再次输入密码"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
                 android:background="@null"
+                android:hint="再次输入密码"
                 android:inputType="textPassword"
-                android:lines="1" />
+                android:lines="1"
+                android:textSize="@dimen/text_size_16" />
         </LinearLayout>
 
-        <View style="@style/comm_line" />
 
         <Button
             android:id="@+id/regist_submit"

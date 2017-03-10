@@ -30,11 +30,11 @@
 
         <LinearLayout
             android:id="@+id/user_info_item_layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/avatar"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:orientation="vertical"
             android:visibility="gone">
 
@@ -42,16 +42,35 @@
                 android:id="@+id/nick_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:lines="1"
                 android:textSize="@dimen/text_size_16" />
 
             <TextView
-                android:id="@+id/signature"
+                android:id="@+id/integral"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_16"
-                android:text="signature" />
+                android:text="金币"
+                android:textSize="@dimen/text_size_16" />
+
+            <LinearLayout android:id="@+id/signature_layout"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="签名："
+                    android:textSize="@dimen/text_size_16" />
+
+                <TextView
+                    android:id="@+id/signature"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="signature" android:maxLines="3"
+                    android:textSize="@dimen/text_size_16" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <TextView

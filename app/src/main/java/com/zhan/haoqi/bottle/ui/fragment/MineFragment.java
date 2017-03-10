@@ -34,6 +34,10 @@ public class MineFragment extends Fragment {
     ImageView avatar;
     @BindView(R.id.nick_name)
     TextView nickName;
+    @BindView(R.id.signature)
+    TextView signature;
+    @BindView(R.id.integral)
+    TextView integral;
     private User user;
     View layout;
 
@@ -49,6 +53,7 @@ public class MineFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        setInfo();
         setInfo();
     }
 
@@ -84,10 +89,23 @@ public class MineFragment extends Fragment {
         } else {
             avatar.setImageResource(R.mipmap.bottle);
         }
+
+
         nickName.setText(user.nick_name);
         Drawable drawable = getResources().getDrawable(user.gender == 0 ? R.mipmap.user_gender_female : R.mipmap.user_gender_male);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         nickName.setCompoundDrawables(null, null, drawable, null);
+
+
+        if (TextUtils.isEmpty(user.signature)) {
+            layout.findViewById(R.id.signature_layout).setVisibility(View.GONE);
+        } else {
+            layout.findViewById(R.id.signature_layout).setVisibility(View.VISIBLE);
+            signature.setText(user.signature);
+        }
+
+        integral.setText("金币：" + user.integral);
+
 
     }
 
