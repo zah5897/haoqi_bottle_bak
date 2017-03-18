@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -127,16 +128,24 @@ public class MainActivity extends FragmentActivity {
                 showMsgTab();
                 msgTxt.setTextColor(getResources().getColor(R.color.app_color));
                 mineTxt.setTextColor(getResources().getColor(R.color.black_60));
+                msgTxt.setCompoundDrawablesWithIntrinsicBounds(null,getTabDrawable(R.mipmap.message_selected),null,null);
+                mineTxt.setCompoundDrawablesWithIntrinsicBounds(null,getTabDrawable(R.mipmap.mine),null,null);
                 break;
             case R.id.sea_tab:
                 showSeaTab();
                 msgTxt.setTextColor(getResources().getColor(R.color.black_60));
                 mineTxt.setTextColor(getResources().getColor(R.color.black_60));
+
+                msgTxt.setCompoundDrawablesWithIntrinsicBounds(null,getTabDrawable(R.mipmap.message),null,null);
+                mineTxt.setCompoundDrawablesWithIntrinsicBounds(null,getTabDrawable(R.mipmap.mine),null,null);
                 break;
             case R.id.mine_tab:
                 showMineTab();
                 msgTxt.setTextColor(getResources().getColor(R.color.black_60));
                 mineTxt.setTextColor(getResources().getColor(R.color.app_color));
+
+                msgTxt.setCompoundDrawablesWithIntrinsicBounds(null,getTabDrawable(R.mipmap.message),null,null);
+                mineTxt.setCompoundDrawablesWithIntrinsicBounds(null,getTabDrawable(R.mipmap.mine_selected),null,null);
                 break;
         }
     }
@@ -203,4 +212,7 @@ public class MainActivity extends FragmentActivity {
             super.handleMessage(msg);
         }
     };
+    public Drawable getTabDrawable(int resId){
+        return getResources().getDrawable(resId);
+    }
 }

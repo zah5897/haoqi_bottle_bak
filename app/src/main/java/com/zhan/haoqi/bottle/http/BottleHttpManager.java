@@ -33,7 +33,7 @@ public class BottleHttpManager {
 
 
     public static void netBottle(BaseSubscriber subscriber) {
-        HttpHelper.post(BOTTLE_NET).subscribe(subscriber);
+        HttpHelper.postHttp(BOTTLE_NET).subscribe(subscriber);
     }
 
     public static void sendBottle(File file, String contnet, int type, BaseSubscriber subscriber) {
@@ -44,7 +44,7 @@ public class BottleHttpManager {
         if (file != null && file.exists()) {
             param.put("image", file);
         }
-        HttpHelper.post(BOTTLE_SEND, param).subscribe(subscriber);
+        HttpHelper.postHttp(BOTTLE_SEND, param).subscribe(subscriber);
     }
 
     public static Bottle praseBottle(JSONObject jsonObject) {
@@ -54,7 +54,7 @@ public class BottleHttpManager {
     }
 
     public static void refreshBottles(Subscriber subscriber) {
-        HttpHelper.post(BOTTLE_MAIN_REFRESH).subscribe(subscriber);
+        HttpHelper.postHttp(BOTTLE_MAIN_REFRESH).subscribe(subscriber);
     }
 
     public static List<Bottle> praseBottles(JSONObject jsonObject) {
@@ -65,13 +65,13 @@ public class BottleHttpManager {
         return ps;
     }
 
-    public static void submitComment(long bottle_id, long author_user_id, String comment,long at_comment_id, Subscriber subscriber) {
+    public static void submitComment(long bottle_id, long author_user_id, String comment, long at_comment_id, Subscriber subscriber) {
         RequestParam param = new RequestParam();
         param.put("bottle_id", bottle_id);
         param.put("author_user_id", author_user_id);
         param.put("content", comment);
         param.put("at_comment_id", at_comment_id);
-        HttpHelper.post(BOTTLE_COMMENT, param).subscribe(subscriber);
+        HttpHelper.postHttp(BOTTLE_COMMENT, param).subscribe(subscriber);
     }
 
     public static void reloadComments(long bottle_id, long last_comment_id, BaseSubscriber<JSONObject> subscriber) {
@@ -79,6 +79,6 @@ public class BottleHttpManager {
         param.put("bottle_id", bottle_id);
         param.put("last_id", last_comment_id);
         param.put("page_size", PAGE_SIZE);
-        HttpHelper.post(BOTTLE_COMMENT_LIST, param).subscribe(subscriber);
+        HttpHelper.postHttp(BOTTLE_COMMENT_LIST, param).subscribe(subscriber);
     }
 }

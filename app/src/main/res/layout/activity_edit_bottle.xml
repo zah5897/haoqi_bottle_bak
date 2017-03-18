@@ -6,7 +6,7 @@
 
     <include
         android:id="@+id/action_bar"
-        layout="@layout/include_action_bar" />
+        layout="@layout/include_action_bar_with_right_btn" />
 
     <include layout="@layout/edit_question_sign_bottle" />
 

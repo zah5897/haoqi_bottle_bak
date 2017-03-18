@@ -27,6 +27,11 @@ public abstract class BaseSubscriber<T> extends Subscriber<T> {
     }
 
     @Override
+    public void onCompleted() {
+
+    }
+
+    @Override
     public void onError(Throwable e) {
         if (e instanceof HttpError) {
             HttpError he = (HttpError) e;

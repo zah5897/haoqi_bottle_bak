@@ -33,10 +33,16 @@ import rx.schedulers.Schedulers;
  */
 public class HttpHelper {
 
-    public static String URL_PROFIX = "http://117.143.221.190:8899/bottle";
+    public static String URL_IP = "117.143.221.190:8899/bottle";
+    public static final String URL_HTTPS = "https://" + URL_IP;
+    public static final String URL_HTTP = "http://" + URL_IP;
 
-    public static String getUrlProfix() {
-        return URL_PROFIX;
+    public static String getHttpUrl() {
+        return URL_HTTP;
+    }
+
+    public static String getHttpsUrl() {
+        return URL_HTTPS;
     }
 
 
@@ -52,7 +58,7 @@ public class HttpHelper {
         if (imageName.startsWith("http")) {
             return imageName;
         }
-        return URL_PROFIX + "/images/user/" + imageName;
+        return getHttpUrl() + "/images/user/" + imageName;
     }
 
     public static String getImgThumbFix(String imageName) {
@@ -63,7 +69,7 @@ public class HttpHelper {
         if (imageName.startsWith("http")) {
             return imageName;
         }
-        return URL_PROFIX + "/images/bottle/thumb/" + imageName;
+        return getHttpUrl() + "/images/bottle/thumb/" + imageName;
     }
 
     public static String getImgOriginFix(String imageName) {
@@ -73,15 +79,17 @@ public class HttpHelper {
         if (imageName.startsWith("http")) {
             return imageName;
         }
-        return URL_PROFIX + "/images/bottle/origin/" + imageName;
+        return getHttpUrl() + "/images/bottle/origin/" + imageName;
     }
 
-    private static RequestParam fifterParam(RequestParam param) {
+    private static RequestParam fifterParam(String url, RequestParam param) {
         if (param == null) {
             param = new RequestParam();
         }
         param.put("client_id", AppUtils.getUniqueID());
-        param.put("sign", Sign.getSignKey(MyApplication.getApp()));
+        if (url.startsWith("https://")) {
+            param.put("sign", Sign.getSignKey(MyApplication.getApp()));
+        }
         param.put("verion_code", AppUtils.getVersionCode());
         param.put("verion_name", AppUtils.getVersionName());
         if (UserManager.getInstance().isLogin()) {
@@ -91,49 +99,94 @@ public class HttpHelper {
         return param;
     }
 
-    public static Observable<JSONObject> post(final String url) {
-        return post(url, null);
+
+    public static Observable<JSONObject> postHttp(String url) {
+        return postHttp(url, null);
     }
 
-    public static Observable<JSONObject> post(final String url, final RequestParam params) {
+    public static Observable<JSONObject> postHttp(final String url, final RequestParam params) {
+        return Observable.create(new Observable.OnSubscribe<JSONObject>() {
+            @Override
+            public void call(final Subscriber<? super JSONObject> subscriber) {
+                Response response = http(url, params);
+                handleResult(response, subscriber);
+            }
+
+        }).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io());
+    }
+
+    public static Observable<JSONObject> postHttps(final String url, final RequestParam params) {
 
         return Observable.create(new Observable.OnSubscribe<JSONObject>() {
             @Override
             public void call(final Subscriber<? super JSONObject> subscriber) {
-                try {
-                    Response response = postHttp(url, fifterParam(params).prase());
-                    int code = response.code();
-                    if (code == 200) {
-                        String result = response.body().string();
-                        JSONObject object = new JSONObject(result);
-                        int rc = object.optInt("code");
-                        if (rc == 0) {
-                            subscriber.onNext(object);
-                        } else {
-                            subscriber.onError(new HttpError(rc, object.optString("msg")));
-                        }
-                    } else {
-                        subscriber.onError(new HttpError(HttpError.ERROR_HTTP, "网络异常"));
-                    }
-                } catch (Exception e) {
-                    subscriber.onError(new HttpError(HttpError.ERROR_HTTP, "网络异常"));
-                }
+                Response response = https(url, params);
+                handleResult(response, subscriber);
             }
+
         }).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io());
     }
 
-    private static Response postHttp(final String url, final RequestBody requestBody) {
+    private static void handleResult(Response response, final Subscriber<? super JSONObject> subscriber) {
+
+        if(response==null){
+            subscriber.onError(new HttpError(HttpError.ERROR_HTTP, "网络异常"));
+            return;
+        }
+        try {
+            int code = response.code();
+            if (code == 200) {
+                String result = response.body().string();
+                JSONObject object = new JSONObject(result);
+                int rc = object.optInt("code");
+                if (rc == 0) {
+                    subscriber.onNext(object);
+                } else {
+                    subscriber.onError(new HttpError(rc, object.optString("msg")));
+                }
+            } else {
+                subscriber.onError(new HttpError(HttpError.ERROR_HTTP, "网络异常"));
+            }
+        } catch (Exception e) {
+            subscriber.onError(new HttpError(HttpError.ERROR_HTTP, "网络异常"));
+        }
+    }
+
+    private static Response http(final String url, RequestParam params) {
         String fullUrl = url;
         if (!url.startsWith("http://")) {
-            fullUrl = URL_PROFIX + url;
+            fullUrl = getHttpUrl() + url;
         }
-
+        RequestBody requestBody = fifterParam(fullUrl, params).prase();
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(HTTP_CONNECT_TIME_OUT, TimeUnit.SECONDS)
                 .readTimeout(HTTP_READ_TIME_OUT, TimeUnit.SECONDS).writeTimeout(HTTP_READ_TIME_OUT * 2, TimeUnit.SECONDS)
                 .build();
+        Request request = new Request.Builder()
+                .url(fullUrl)
+                .post(requestBody)
+                .build();
 
+        Response response = null;
+        String result = null;
+        try {
+            response = client.newCall(request).execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
 
+    private static Response https(final String url, RequestParam params) {
+        String fullUrl = url;
+        if (!url.startsWith("https://")) {
+            fullUrl = getHttpsUrl() + url;
+        }
+        RequestBody requestBody = fifterParam(fullUrl, params).prase();
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(HTTP_CONNECT_TIME_OUT, TimeUnit.SECONDS)
+                .readTimeout(HTTP_READ_TIME_OUT, TimeUnit.SECONDS).writeTimeout(HTTP_READ_TIME_OUT * 2, TimeUnit.SECONDS)
+                .build();
         Request request = new Request.Builder()
                 .url(fullUrl)
                 .post(requestBody)

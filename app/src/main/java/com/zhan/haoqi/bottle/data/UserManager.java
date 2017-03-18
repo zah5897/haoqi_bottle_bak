@@ -3,7 +3,6 @@ package com.zhan.haoqi.bottle.data;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.tencent.connect.UserInfo;
@@ -15,16 +14,15 @@ import com.zhan.haoqi.bottle.http.HttpHelper;
 import com.zhan.haoqi.bottle.http.RequestParam;
 import com.zhan.haoqi.bottle.ui.LoginActivity;
 import com.zhan.haoqi.bottle.util.SharePrefreenceUtil;
+import com.zhan.haoqi.bottle.util.To;
 import com.zhan.haoqi.sign.Sign;
 
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
 
 import haoqi.emoji.util.EmojiUtils;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 
 
 /**
@@ -39,11 +37,14 @@ public class UserManager {
     public static final String USER_LOGIN = "/user/login";
     public static final String USER_REGIST = "/user/regist";
     public static final String USER_MODIFY = "/user/modify_user_info";
+    public static final String USER_MRESET_PWD = "/user/reset_pwd";
     private static UserManager userManager;
     private Tencent mTencent;
 
+    private Map<String, User> userMap;
 
     private UserManager() {
+        userMap=new HashMap<String, User>();
         Sign.getSignKey(MyApplication.getApp());
         EmojiUtils.getInstance();
     }
@@ -52,6 +53,10 @@ public class UserManager {
 
     public User getUser() {
         return user;
+    }
+
+    public Map<String, User> getUserMap() {
+        return userMap;
     }
 
     public static UserManager getInstance() {
@@ -97,7 +102,7 @@ public class UserManager {
 
         RequestParam param = new RequestParam();
         param.put("account", userJson);
-        HttpHelper.post(USER_SUBMIT, param).subscribe(new BaseSubscriber<JSONObject>() {
+        HttpHelper.postHttp(USER_SUBMIT, param).subscribe(new BaseSubscriber<JSONObject>() {
             @Override
             public void onCompleted() {
                 if (isLogin()) {
@@ -157,10 +162,19 @@ public class UserManager {
     }
 
     public void regist(RequestParam param, BaseSubscriber baseSubscriber) {
-        HttpHelper.post(USER_REGIST, param).subscribe(baseSubscriber);
+        HttpHelper.postHttp(USER_REGIST, param).subscribe(baseSubscriber);
     }
+
     public void modifyUserInfo(RequestParam param, BaseSubscriber baseSubscriber) {
-        HttpHelper.post(USER_MODIFY, param).subscribe(baseSubscriber);
+        HttpHelper.postHttp(USER_MODIFY, param).subscribe(baseSubscriber);
+    }
+
+    public void resetPwd(String phone, String oldPassword, String newPwd, BaseSubscriber baseSubscriber) {
+        RequestParam param = new RequestParam();
+        param.put("mobile", phone);
+        param.put("old_password", oldPassword);
+        param.put("password", newPwd);
+        HttpHelper.postHttp(USER_MRESET_PWD, param).subscribe(baseSubscriber);
     }
 
     public void praseAndSave(JSONObject jsonObject) {
@@ -173,6 +187,6 @@ public class UserManager {
 
 
     public void toLogin(Context context) {
-     context.startActivity(new Intent(context, LoginActivity.class));
+        context.startActivity(new Intent(context, LoginActivity.class));
     }
 }

@@ -24,17 +24,20 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:24.1.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile project(':IM')
+    compile project(':im')
     compile project(':sign')
     compile files('libs/open_sdk_r5756_lite.jar')
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'io.reactivex:rxjava:1.0.9'
     compile 'io.reactivex:rxandroid:0.24.0'
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
+
+    //sms jar
     compile files('libs/MobCommons-2016.1201.1839.jar')
     compile files('libs/MobTools-2016.1201.1839.jar')
     compile files('libs/SMSSDK-2.1.3.jar')
 }
+
 
 
 

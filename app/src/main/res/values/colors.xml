@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="red">#f16d7a</color>
-    <color name="green">#b7d28d</color>
     <color name="item_press_color">#11000000</color>
     <color name="transprant">#00000000</color>
     <color name="half_transprant">#88D4D4D4</color>
@@ -25,11 +23,10 @@
     <color name="gray_park">#ffebebeb</color>
     <color name="white">#ffffff</color>
     <color name="app_color">#ff45c01a</color>
-    <color name="gray_line">#ffe1e1e1</color>
-    <color name="btn_press">#aa45c01a</color>
+    <color name="btn_normal">#bb45c01a</color>
     <color name="transparent">#00000000</color>
 
-
+    <color name="gray_line">#ffe1e1e1</color>
     <color name="gray_text_second">#ffcbcbcc</color>
 
 

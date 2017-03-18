@@ -45,15 +45,15 @@ import haoqi.emoji.ui.view.EmojiKeyboard;
  */
 public class EditBottleActivity extends Activity implements View.OnClickListener, EmojiKeyboard.EventListener, TextWatcher {
 
-    @BindView(R.id.action_bar_middle_text)
-    TextView actionBarMiddleText;
+    @BindView(R.id.title)
+    TextView title;
     @BindView(R.id.edit_bottle_face_container)
     EmojiKeyboard editBottleFaceContainer;
     @BindView(R.id.edit_bottle_input)
     EmojiEditText editBottleInput;
     @BindView(R.id.back)
     ImageView action_bar_left_text;
-    @BindView(R.id.action_bar_right_text)
+    @BindView(R.id.menu_right)
     TextView action_bar_right_text;
     @BindView(R.id.edit_bottle_content_img)
     ImageView contentImg;
@@ -73,13 +73,13 @@ public class EditBottleActivity extends Activity implements View.OnClickListener
         editBottleInput.setOnClickListener(this);
         editBottleInput.addTextChangedListener(this);
         editBottleInput.requestFocus();
-        actionBarMiddleText.setText(getString(R.string.bottle_create));
+        title.setText(getString(R.string.bottle_create));
         action_bar_left_text.setVisibility(View.VISIBLE);
         action_bar_left_text.setOnClickListener(this);
         contentImg.setOnClickListener(this);
         action_bar_right_text.setVisibility(View.VISIBLE);
         action_bar_right_text.setText("扔出去");
-        findViewById(R.id.action_bar_right_text).setOnClickListener(this);
+        findViewById(R.id.menu_right).setOnClickListener(this);
         findViewById(R.id.type_tip).setOnClickListener(this);
         setCheckListener();
     }
@@ -108,7 +108,7 @@ public class EditBottleActivity extends Activity implements View.OnClickListener
             case R.id.edit_bottle_sel_img:
                 showSelectImgDialog();
                 break;
-            case R.id.action_bar_right_text:
+            case R.id.menu_right:
                 if (!UserManager.getInstance().isLogin()) {
                     startActivity(new Intent(this, LoginActivity.class));
                 } else {

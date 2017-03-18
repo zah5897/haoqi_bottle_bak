@@ -102,7 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/item_white_clickable_selector">
+            android:background="@color/white">
 
             <TextView
                 android:layout_width="60dp"
@@ -131,7 +131,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/item_white_clickable_selector">
+            android:background="@color/white">
 
             <TextView
                 android:layout_width="60dp"

@@ -35,7 +35,7 @@
               秘密：该状态的瓶子为随机加锁状态，只能被单次捡到，并且有概率打不开瓶子或花费积分强制打开，被回应后瓶子不再漂流，扔回海里继续漂流。<br/>
         ]]>
     </string>
-
-
     <string name="time_count_down"><Data>倒计时(&lt;font color=#DB5347>%s&lt;/font>)秒</Data></string>
+
+    <string name="at_your_in_group">%s在群聊中@了你</string>
 </resources>

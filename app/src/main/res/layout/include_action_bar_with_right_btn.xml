@@ -14,7 +14,7 @@
         android:src="@mipmap/smssdk_back_arrow" />
 
     <TextView
-        android:id="@+id/action_bar_middle_text"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -27,7 +27,8 @@
         android:id="@+id/menu_right"
         android:layout_width="45dp"
         android:layout_height="match_parent"
-        android:layout_alignParentRight="true" android:textColor="@color/white"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/white"
         android:background="@drawable/view_selector"
         android:gravity="center"
         android:scaleType="center" />

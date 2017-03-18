@@ -18,6 +18,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.zhan.haoqi.bottle.R;
+import com.zhan.haoqi.bottle.data.Callback;
 import com.zhan.haoqi.bottle.data.User;
 import com.zhan.haoqi.bottle.data.UserManager;
 import com.zhan.haoqi.bottle.http.BaseSubscriber;
@@ -61,7 +62,7 @@ public class UserInfoEditActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_user_info);
         ButterKnife.bind(this);
-        ((TextView) findViewById(R.id.action_bar_middle_text)).setText("用户信息");
+        ((TextView) findViewById(R.id.title)).setText("用户信息");
         setUserInfo();
     }
 
@@ -130,29 +131,22 @@ public class UserInfoEditActivity extends Activity {
             param.put("avatar", avatarFile);
         }
         UserManager.getInstance().modifyUserInfo(param, new BaseSubscriber<JSONObject>() {
-                    @Override
-                    public void onCompleted() {
-                    }
+            @Override
+            public void onNext(JSONObject jsonObject) {
+                UserManager.getInstance().praseAndSave(jsonObject);
+                To.dismiss(submit);
+                To.show("保存成功！");
+                setResult(RESULT_OK);
+                finish();
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                        HttpError he = (HttpError) e;
-                        To.dismiss(submit);
-                    }
-
-                    @Override
-                    public void onNext(JSONObject o) {
-                        To.dismiss(submit);
-                        To.show("保存成功！");
-                        setResult(RESULT_OK);
-                        UserManager.getInstance().praseAndSave(o);
-                        finish();
-                        return;
-                    }
-                }
-
-        );
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                To.dismiss(submit);
+                To.show("保存失败！");
+            }
+        });
 
     }
 

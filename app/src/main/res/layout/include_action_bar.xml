@@ -13,13 +13,7 @@
         android:src="@mipmap/smssdk_back_arrow" />
 
     <TextView
-        android:id="@+id/action_bar_middle_text"
+        android:id="@+id/title"
         style="@style/title_middle" />
 
-    <TextView
-        android:id="@+id/action_bar_right_text"
-        style="@style/title_left_text"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/view_selector"
-        android:visibility="gone" />
 </RelativeLayout>

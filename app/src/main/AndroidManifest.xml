@@ -62,11 +62,9 @@
         <activity
             android:name="com.zhan.haoqi.bottle.ui.user.UserInfoEditActivity"
             android:screenOrientation="portrait" />
-
-
-
-
-
+        <activity
+            android:name="com.zhan.haoqi.bottle.ui.user.ResetPasswordActiviy"
+            android:screenOrientation="portrait" />
 
         <service android:name="com.zhan.haoqi.bottle.service.BottleService"></service>
 

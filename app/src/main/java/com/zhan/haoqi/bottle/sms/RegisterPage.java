@@ -71,7 +71,10 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 
     private static final int RETRY_INTERVAL = 60;
     private int time = RETRY_INTERVAL;
-
+    boolean forgotPwd;
+    public RegisterPage(boolean forgotPwd) {
+      this.forgotPwd=forgotPwd;
+    }
 
     private final String COUNTRY_CODE = "86";
 
@@ -79,8 +82,13 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
         activity.setContentView(R.layout.sms_regist_page);
         inputPhone = (EditText) activity.findViewById(R.id.input_phone);
         validateCodeInput = (EditText) activity.findViewById(R.id.validate_code);
-        TextView tv = (TextView) activity.findViewById(R.id.action_bar_middle_text);
-        tv.setText("手机号码注册");
+        TextView tv = (TextView) activity.findViewById(R.id.title);
+        if(forgotPwd){
+            tv.setText("找回密码");
+        }else{
+            tv.setText("手机号码注册");
+        }
+
         btnNext = (Button) activity.findViewById(R.id.next);
         inputPhone.setText("");
         inputPhone.addTextChangedListener(this);
@@ -290,7 +298,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
                                   HashMap<String, String> hashMap = new HashMap<>();
                                   hashMap.put("phone", phone);
                                   phoneMap = hashMap;
-                                  Toast.makeText(activity,"该手机号码为诚信号码，免验证！",Toast.LENGTH_LONG).show();
+                                  Toast.makeText(activity, "该手机号码为诚信号码，免验证！", Toast.LENGTH_LONG).show();
                               } else {
                                   if (result == SMSSDK.RESULT_COMPLETE) {
                                       phoneMap = data;

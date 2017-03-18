@@ -64,7 +64,7 @@ public class RegistActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist);
         ButterKnife.bind(this);
-        ((TextView) findViewById(R.id.action_bar_middle_text)).setText("注册");
+        ((TextView) findViewById(R.id.title)).setText("注册");
     }
 
     @OnClick({R.id.back, R.id.avatar, R.id.gender, R.id.regist_submit})
@@ -156,11 +156,6 @@ public class RegistActivity extends Activity {
             param.put("avatar", avatarFile);
         }
         UserManager.getInstance().regist(param, new BaseSubscriber<JSONObject>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
                     @Override
                     public void onError(Throwable e) {
                         super.onError(e);

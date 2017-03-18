@@ -21,6 +21,7 @@ import com.zhan.haoqi.bottle.http.HttpHelper;
 import com.zhan.haoqi.bottle.http.RequestParam;
 import com.zhan.haoqi.bottle.sms.RegisterPage;
 import com.zhan.haoqi.bottle.ui.user.RegistActivity;
+import com.zhan.haoqi.bottle.ui.user.ResetPasswordActiviy;
 import com.zhan.haoqi.bottle.util.AppUtils;
 import com.zhan.haoqi.bottle.util.To;
 
@@ -45,8 +46,8 @@ public class LoginActivity extends Activity {
     private final int REGIST_REQUEST = 1;
     @BindView(R.id.back)
     ImageView back;
-    @BindView(R.id.action_bar_middle_text)
-    TextView actionBarMiddleText;
+    @BindView(R.id.title)
+    TextView title;
     @BindView(R.id.to_regist_page)
     TextView toRegistPage;
     @BindView(R.id.username)
@@ -61,7 +62,7 @@ public class LoginActivity extends Activity {
         ButterKnife.bind(this);
         findViewById(R.id.action_bar).setVisibility(View.VISIBLE);
         back.setVisibility(View.VISIBLE);
-        actionBarMiddleText.setText(getString(R.string.login));
+        title.setText(getString(R.string.login));
         toRegistPage.setText(Html.fromHtml(getString(R.string.to_regist_tip)));
     }
 
@@ -94,7 +95,7 @@ public class LoginActivity extends Activity {
                 break;
             case R.id.to_regist_page:
 // 打开注册页面
-                RegisterPage registerPage = new RegisterPage();
+                RegisterPage registerPage = new RegisterPage(false);
                 registerPage.setRegisterCallback(new EventHandler() {
                     public void afterEvent(int event, int result, Object data) {
                         // 解析注册结果
@@ -109,10 +110,24 @@ public class LoginActivity extends Activity {
                     }
                 });
                 registerPage.show(this);
-                // startActivityForResult(new Intent(this, RegistActivity.class), REGIST_REQUEST);
                 break;
             case R.id.forgot_pwd:
-                startActivity(new Intent(this, RegistActivity.class));
+                // 打开注册页面
+                RegisterPage  forgotPage = new RegisterPage(true);
+                forgotPage.setRegisterCallback(new EventHandler() {
+                    public void afterEvent(int event, int result, Object data) {
+                        // 解析注册结果
+                        if (result == SMSSDK.RESULT_COMPLETE) {
+                            HashMap<String, Object> phoneMap = (HashMap<String, Object>) data;
+                            String phone = (String) phoneMap.get("phone");
+                            Intent intent = new Intent(getBaseContext(), ResetPasswordActiviy.class);
+                            intent.putExtra("phone", phone);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
+                });
+                forgotPage.show(this);
                 break;
         }
     }
@@ -147,7 +162,7 @@ public class LoginActivity extends Activity {
         param.put("mobile", mobile);
         param.put("password", passwordStr);
 
-        HttpHelper.post(UserManager.USER_LOGIN, param).subscribe(new BaseSubscriber<JSONObject>() {
+        HttpHelper.postHttp(UserManager.USER_LOGIN, param).subscribe(new BaseSubscriber<JSONObject>() {
             @Override
             public void onCompleted() {
                 if (UserManager.getInstance().isLogin()) {

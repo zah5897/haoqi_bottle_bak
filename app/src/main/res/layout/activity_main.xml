@@ -13,13 +13,14 @@
 
     <View
         android:id="@+id/break_line"
-        style="@style/comm_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp" android:background="@color/gray_line"
         android:layout_above="@+id/tab_layout" />
 
     <LinearLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center_vertical"
         android:background="@color/white_netease">
@@ -30,7 +31,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:background="@drawable/view_selector"
             android:gravity="center">
 
             <TextView
@@ -59,7 +59,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen2"
             android:layout_weight="1"
-            android:background="@drawable/view_selector"
             android:gravity="center">
 
             <TextView
